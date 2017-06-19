@@ -1,0 +1,61 @@
+<table id="all-income-table" class="table">
+  <thead>
+    <tr>
+      <th>
+        Date Given
+      </th>
+
+      <th>
+        Source
+      </th>
+
+      <th>
+        Amount
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Tags
+      </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for p in posts %}
+        <tr>
+          <td>
+            {{p.dateGiven | date('d/m/y')}}
+          </td>
+
+          <td>
+            {% if p.customer is not null %}
+            {{p.customer.name}}
+            {% endif %}
+          </td>
+
+          <td>
+            {{p.financialValue|fintotal}}
+          </td>
+
+          <td>
+            {{p.description}}
+          </td>
+
+          <td>
+            {% for tag in p.tags %}
+            <div class="chip">
+              {{tag.name}}
+            </div>
+            {% else %}
+                No tags!
+            {% endfor %}
+          </td>
+
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>

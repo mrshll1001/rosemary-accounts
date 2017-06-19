@@ -1,0 +1,61 @@
+{% extends 'AppBundle:user:control_panel.html.twig' %}
+
+{% block title %}Post an Event{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="card">
+      <div class="card-content">
+          <span class="card-title">Post an Event</span>
+
+          <p class="light">
+            Click on the map to select the place
+          </p>
+          <div class="mock_map_div" id="mock-map" style="height: 500px; width: 100%;"></div>
+
+          {{ form_start(form) }}
+            {{form_widget(form)}}
+
+            <label for="chips">Tags</label>
+            <div class="chips chips-autocomplete" name="chips">
+            </div>
+
+            <button type="submit" class="btn" name="button">Post</button>
+          {{ form_end(form) }}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="{{asset('js/add-event-map.js')}}"></script>
+
+<script type="text/javascript">
+$('.chips').material_chip();
+
+$('.chips').on('chip.add', function(e, chip){
+  updateChipInput(this);
+})
+.on('chip.delete', function(e, chip){
+  updateChipInput(this);
+});
+
+function updateChipInput(chip){
+  var newval= $(chip).material_chip('data')
+  .reduce(function(result,val){ result.push(val.tag); return result;},[]).join(",")
+
+  $('input[name="event_post[tags]"]').val(newval);
+}
+</script>
+
+
+
+{% endblock script %}

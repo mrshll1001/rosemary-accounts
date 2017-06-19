@@ -1,0 +1,34 @@
+{% extends 'AppBundle:user:control_panel.html.twig' %}
+
+{% block title %}My Posts{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h1 class="light">My Posts</h1>
+    <p class="light">
+      Here you can see a list of your posts, edit and delete them.
+    </p>
+  </div>
+
+  <div class="row">
+    {% for post in posts %}
+
+      <div class="col s12">
+
+
+        {% if post.reconciled %}
+          {% include 'AppBundle:profile:card_my-posts.html.twig' %}
+        {% else %}
+          {% include 'AppBundle:profile:card_incoming.html.twig' %}
+        {% endif %}
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
+{% block script %}
+  <script type="text/javascript" src="{{asset('js/profile-maps.js')}}"></script>
+{% endblock script %}

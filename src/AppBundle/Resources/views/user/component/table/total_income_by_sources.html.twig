@@ -1,0 +1,27 @@
+<table id="total-by-source-table" class="table">
+  <thead>
+    <tr>
+      <th>
+        Source
+      </th>
+
+      <th>
+        Total Amount
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for item in customerTotals %}
+    <tr>
+      <td>
+        {{item.customer}}
+      </td>
+
+      <td>
+        {{item.total|fintotal}}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

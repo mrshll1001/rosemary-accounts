@@ -1,0 +1,48 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Date Given
+      </th>
+
+      <th>
+        Amount
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Tags
+      </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for p in posts|reverse %}
+        <tr>
+          <td>
+            {{p.dateGiven | date('d/m/y')}}
+          </td>
+
+          <td>
+            {{p.financialValue|fintotal}}
+          </td>
+
+          <td>
+            {{p.description}}
+          </td>
+
+          <td>
+            {% for tag in p.tags %}
+                {% include 'AppBundle:profile:chip_tag.html.twig'  with {'route': 'accounts_search_tags'}%}
+            {% endfor %}
+          </td>
+
+
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>

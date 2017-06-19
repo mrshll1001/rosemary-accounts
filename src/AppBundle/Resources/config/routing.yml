@@ -1,0 +1,83 @@
+index:
+  path: /
+  defaults: { _controller: AppBundle:Default:index }
+
+terms:
+  path: /terms
+  defaults: { _controller:AppBundle:Default:terms }
+
+privacy:
+  path: /privacy-policy
+  defaults: { _controller:AppBundle:Default:privacy }
+
+# landing_features:
+#   path: /features
+#   defaults: { _controller: AppBundle:Default:features }
+
+social_organisations:
+  path: /orgs
+  defaults: { _controller: AppBundle:Default:organisations }
+
+social_profile:
+  path: /profile/{username}
+  defaults: { _controller: AppBundle:Default:viewProfile }
+
+social_profile_gallery:
+  path: /profile/{username}/gallery
+  defaults: { _controller: AppBundle:Default:viewProfileGallery }
+
+social_profile_locations:
+  path: /profile/{username}/where
+  defaults: { _controller: AppBundle:Default:viewProfileLocationPosts }
+
+social_profile_tags:
+  path: /profile/{username}/what
+  defaults: { _controller: AppBundle:Default:viewProfileTags }
+
+social_profile_tags_search:
+  path: /profile/{username}/what/{tagstring}
+  defaults: { _controller:AppBundle:Default:viewProfileSearchTags }
+
+user_registration:
+  path: /register
+  defaults: { _controller: AppBundle:Registration:register }
+
+user_post-registration:
+  path: /setup
+  defaults: { _controller: AppBundle:Setup:setupAccount }
+
+login:
+  path: /login
+  defaults: { _controller: AppBundle:Security:login }
+
+user_check:
+  path: /authorised
+  defaults: { _controller: AppBundle:Default:userCheck }
+
+logout:
+  path: /logout
+
+accounts:
+  resource: "@AppBundle/Resources/config/accounts.yml"
+  prefix: /accounts
+
+qa-media_upload:
+  path: /qa-media
+  defaults: { _controller: AppBundle:QA:uploadMedia }
+
+qa-media_get:
+  path: /qa-media/{filehash}
+  defaults: { _controller: AppBundle:QA:getMedia }
+
+qa-media_view:
+  path: /qa-media/view/{filehash}
+  defaults: { _controller: AppBundle:QA:viewMedia }
+
+qa-post_upload:
+  path: /qa-data
+  defaults: { _controller: AppBundle:QA:uploadPost }
+  methods: [POST]
+
+accounting_scrapbook_tutorial:
+  path: /using-accounting-scrapbook
+  defaults: { _controller:AppBundle:Default:accountingScrapbookTutorial }

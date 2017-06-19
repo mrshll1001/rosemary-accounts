@@ -1,0 +1,23 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}QA Data{% endblock title %}
+
+{% block body %}
+
+{% include 'AppBundle:landing:navbar.html.twig' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4 class="light">{{media.filehash}}</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 center">
+      <img src="{{media.url}}" alt="" />
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

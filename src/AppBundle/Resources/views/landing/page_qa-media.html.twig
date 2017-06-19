@@ -1,0 +1,50 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Qualitative Account Media{% endblock title %}
+
+{% block body %}
+
+  {% include 'AppBundle:landing:navbar.html.twig' %}
+
+<div class="section">
+  <div class="container">
+
+    <div class="row">
+      <h1 class="light">Qualitative Accounting Media</h1>
+    </div>
+    <div class="row">
+
+      <div class="col s12 m12">
+
+        <p class="light">
+          Rosemary Accounts is part of the <a href="#">Qualitative Accounting</a> (QA) ecosystem. As a free to use web service we have the opportunity to act as a place to store media files for use in QA applications. All media (images, video, documents), uploaded to us will be stored and made available in accordance with the QA API Standard.
+        </p>
+
+        <p class="light">
+          If you're using our services to log your work, this will happen automatically whenever you upload a post with media. Alternatively, you can use one of our <a href="#"> affiliated apps</a> in conjunction with your account. The app should handle the file upload for you. If you want to try it out, however, you can use this form to upload a file.
+        </p>
+
+      </div>
+    </div>
+
+    {{ form_start(form) }}
+      {# This stuff makes it look like materialize #}
+      <span class="red-text">{{form_errors(form)}}</span>
+    <div class="file-field input-field">
+        <div class="btn">
+          <span>Choose File</span>
+                {{ form_widget(form) }}
+        </div>
+
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+        </div>
+    </div>
+
+    <button type="submit" class="btn" name="submit">Upload</button>
+
+    {{ form_end(form) }}
+  </div>
+
+</div>
+  {% endblock body %}

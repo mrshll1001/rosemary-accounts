@@ -1,0 +1,14 @@
+
+
+    <p class="light">
+      Posted {{ post.dateCreated | date("d/m/Y") }}
+    </p>
+
+    <p class="light">
+      Spent <strong>£{{post.financialValue|absVal}}</strong> on <em>{{post.description}}</em>
+    </p>
+
+  
+      {% for tag in post.tags %}
+          {% include 'AppBundle:profile:chip_tag.html.twig'  %}
+      {% endfor %}

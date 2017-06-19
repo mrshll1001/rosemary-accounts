@@ -1,0 +1,40 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}{{organisation.organisationName}}{% endblock title %}
+
+{% block body %}
+  {% include 'AppBundle:landing:navbar.html.twig' %}
+
+  {# Profile Info #}
+  {% include 'AppBundle:profile:profile_header.html.twig'  %}
+
+  <div class="container">
+    <div class="row">
+      <h2 class="light">Latest Posts</h2>
+    </div>
+
+    <div class="row">
+        {% for post in organisation.posts|reverse %}
+
+          {% if post.reconciled %}
+          <div class="col s12">
+
+            {% include 'AppBundle:profile:card_compound_profile.html.twig'  %}
+
+          </div>
+          {% endif %}
+          {% else %}
+              <p class="light">
+                Looks that this organisation hasn't posted yet!
+              </p>
+        {% endfor %}
+
+        {# Mock cards #}
+
+    </div>
+  </div>
+
+{% endblock body %}
+{% block script %}
+  <script type="text/javascript" src="{{asset('js/profile-maps.js')}}"></script>
+{% endblock script %}

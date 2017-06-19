@@ -1,0 +1,21 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Control Panel{% endblock title %}
+
+{% block body %}
+
+  {% block topbar %}
+    {% include 'AppBundle:user/component:navbar.html.twig' %}
+  {% endblock topbar %}
+
+  <div class="row">
+
+      <div class="col s12 m12">
+        {% block content %}
+          <h1 class="light">If you can see this message, the developer mucked up somewhere</h1>
+        {% endblock content %}
+      </div>
+
+  </div>
+
+{% endblock body %}

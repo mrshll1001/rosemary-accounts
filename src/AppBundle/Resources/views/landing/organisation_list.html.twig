@@ -1,0 +1,28 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Organisations{% endblock title %}
+
+{% block body %}
+
+  {% include 'AppBundle:landing:navbar.html.twig' %}
+
+<div class="container">
+  <div class="row">
+    <h1 class="light">List of Organisations</h1>
+  </div>
+
+  <div class="row">
+    {% for org in orgs %}
+      <div class="col s12 m4">
+        {% include 'AppBundle:landing/component:card_user_list.html.twig' %}
+      </div>
+      {% else %}
+          <p class="light">
+            Oh my! It looks like it's early days and nobody's confirmed their account yet. Help us out by either <a href="{{url('user_registration')}}">creating an account</a> or, if you already have one, <a href="{{url('login')}}">logging in</a> to verify it.
+          </p>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock body %}

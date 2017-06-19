@@ -1,0 +1,49 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}{{organisation.organisationName}}'s Locations{% endblock %}
+
+{% block body %}
+  {% include 'AppBundle:landing:navbar.html.twig' %}
+
+  {# Profile Info #}
+  {% include 'AppBundle:profile:profile_header.html.twig'  %}
+
+  <div class="container ">
+    <div class="row">
+      <div class="col s12 center">
+
+          {% for post in events %}
+              <div class="location-marker" data-latitude="{{post.locationLatitude}}" data-longitude="{{post.locationLongitude}}"></div>
+          {% endfor %}
+          <div id="where-map" class="multi-location-map" style="width: 100%; height: 350px"></div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      {# Posts with events #}
+      <h3 class="light">Posts with Locations</h3>
+    </div>
+
+    <div class="row">
+      {% for post in events|reverse %}
+      <div class="col s12 m6">
+
+        {% include 'AppBundle:profile:card_compound.html.twig'  %}
+
+      </div>
+
+      {% else %}
+          <p class="center">
+            There doesn't appear to be any locations for this organisation!
+          </p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock body %}
+
+{% block script %}
+<script type="text/javascript" src="{{asset('js/profile-maps.js')}}" ></script>
+<script type="text/javascript" src="{{asset('js/org-locations-map.js')}}"></script>
+
+{% endblock script %}

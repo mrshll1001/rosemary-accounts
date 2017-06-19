@@ -1,0 +1,9 @@
+{# This template decides how to render the description in the event of a financial value. If it's positive, then it's a gain, otherwise it's a spend #}
+
+<p>
+{% if post.financialValue < 0 %}
+    Spent <strong>£{{post.financialValue|absVal}}</strong> on <em>{{post.description}}</em>
+{% else %}
+    Received <strong>£{{post.financialValue}}</strong> for <em>{{post.description}}</em>, from {{post.customer.name}}
+{% endif %}
+</p>

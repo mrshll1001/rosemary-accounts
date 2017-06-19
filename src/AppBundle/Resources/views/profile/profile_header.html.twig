@@ -1,0 +1,32 @@
+<div id="profile-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header light text-lighten-1">{{organisation.organisationName}}</h1>
+      <div class="row">
+        <div class="col s12 m6">
+
+          <h5 class="header col s12">{{organisation.organisationDescription }}</h5>
+
+          <h5 class="header col s12 light"><i class="material-icons">email</i> <a class="green-text" href="mailto:{{organisation.email}}">{{organisation.email}}</a></h4>
+        </div>
+
+        <div class="col s12 m6">
+          {% include 'AppBundle:profile:card_summary.html.twig'%}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          {% for tag in tag_map %}
+            <div class="chip">
+                {{tag.tag}} ({{tag.number}})
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="http://sarahsexyplants.com/wp-content/uploads/2015/01/Rosemary-in-Flower-1024x768.jpg" alt="Unsplashed background img 1"></div>
+</div>

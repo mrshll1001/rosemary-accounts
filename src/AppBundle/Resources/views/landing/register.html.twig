@@ -1,0 +1,40 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+
+  {% include 'AppBundle:landing:navbar.html.twig' %}
+
+  <div class="section">
+
+    <div class="row">
+      <h1 class="light center">Create an Account</h1>
+    </div>
+
+    <div class="row">
+
+      <div class="col s12 m4 offset-m4">
+      <div class="card">
+        <div class="card-content">
+          {{ form_start(form) }}
+              {{ form_row(form.username) }}
+              {{ form_row(form.email) }}
+              {{ form_row(form.plainPassword.first) }}
+              {{ form_row(form.plainPassword.second) }}
+
+              <p class="light">
+                By creating an account you agree to Rosemary Account's <a href="{{url('terms')}}">Terms of Use</a> and <a href="{{url('privacy')}}">Privacy Policy</a>
+              </p>
+              <br />
+            <button class="btn" type="submit">Register</button>
+
+          {{ form_end(form) }}
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

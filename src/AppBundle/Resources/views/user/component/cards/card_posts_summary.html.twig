@@ -1,0 +1,14 @@
+{% extends 'AppBundle:user/component/cards:card_base.html.twig' %}
+
+{% block card_title %}Summary of Posts{% endblock card_title %}
+
+{% block card_content %}
+<p>
+  {{summary.post_types.total}} Posts
+  {{summary.post_types.images}} Images
+  {{summary.post_types.locations}} Locations
+  {{summary.post_types.quotes}} Quotes
+</p>
+
+
+{% endblock card_content %}

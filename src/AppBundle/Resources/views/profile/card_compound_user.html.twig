@@ -1,0 +1,14 @@
+{% extends 'AppBundle:profile:card_compound.html.twig' %}
+
+{% block tags %}
+  {% for tag in post.tags %}
+  <div class="chip">
+    <a class="grey-text text-darken-3" href="{{path('budget_codes_search', { 'tagstring': tag.name} )}}">{{tag.name}}</a>
+  </div>
+  {% else %}
+  <p>
+    This post has no tags!
+  </p>
+  {% endfor %}
+
+{% endblock tags %}

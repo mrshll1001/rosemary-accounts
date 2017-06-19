@@ -1,0 +1,59 @@
+control_summary:
+  path: /summary
+  defaults: { _controller: AppBundle:Accounts:summary }
+
+my_posts:
+  path: /my-posts
+  defaults: { _controller: AppBundle:Accounts:myPosts }
+
+configure_apps:
+  path: /configure-apps
+  defaults: { _controller: AppBundle:Accounts:configureApps }
+
+budget_codes:
+  path: /tags
+  defaults: { _controller: AppBundle:Accounts:budgetCode }
+
+budget_codes_search:
+  path: /tags/{tagstring}
+  defaults: { _controller: AppBundle:Accounts:budgetCode }
+
+customers:
+  path: /customers
+  defaults: { _controller: AppBundle:Accounts:customer }
+
+income:
+  path: /income
+  defaults: { _controller: AppBundle:Accounts:viewIncome }
+
+expenses:
+  path: /expenses
+  defaults: { _controller: AppBundle:Accounts:viewExpense }
+
+post_image_page:
+  path: /post-image
+  defaults: { _controller: AppBundle:Accounts:createImagePost }
+
+post_event_page:
+  path: /post-event
+  defaults: { _controller: AppBundle:Accounts:createEventPost }
+
+incoming_posts:
+  path: /incoming-posts
+  defaults: { _controller: AppBundle:Accounts:incomingPosts }
+
+accounts_search_tags:
+  path: /search/{tagstring}
+  defaults: { _controller: AppBundle:Accounts:searchTags, tagstring:null }
+
+approve_post:
+  path: /approve-post/{id}
+  defaults: { _controller: AppBundle:Post:approvePost }
+
+remove_post:
+  path: /remove-post/{id}
+  defaults: { _controller: AppBundle:Post:removePost }
+
+edit_post_page:
+  path: /edit-post/{id}
+  defaults: { _controller: AppBundle:Post:editIncomingPost }

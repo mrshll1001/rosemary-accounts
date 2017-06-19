@@ -1,0 +1,27 @@
+{% extends 'AppBundle:user:control_panel.html.twig' %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <h1 class="light">Accounts Summary</h1>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6">
+        {% include 'AppBundle:user/component/cards:card_account_balance.html.twig' %}
+      </div>
+
+      <div class="col s12 m6">
+        {% include 'AppBundle:user/component/cards:card_frequent_tags.html.twig' %}
+
+      </div>
+      <div class="col s12 m6">
+        {% include 'AppBundle:user/component/cards:card_posts_summary.html.twig' %}
+
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

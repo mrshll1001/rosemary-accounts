@@ -1,0 +1,75 @@
+<div class="card">
+{# Decide whether or not it will be an image card #}
+{% if post.mediaURI is not null %}
+  <div class="card-image">
+      <img class="materialboxed" data-caption="{{post.description}}" src="{{post.mediaURI}}" alt="Image stored at {{post.mediaURI}}" />
+      <span class="card-title">{{post.dateGiven|date("d/m/Y")}}</span>
+  </div>
+{% endif %}
+
+
+  <div class="card-content">
+    {# If it's NOT an image card, then we need to put the date/title in the card-content div #}
+    {% if post.mediaURI is null %}
+      <span class="card-title">{{post.dateGiven|date("d/m/Y")}}</span>
+    {% endif %}
+
+    {# Next, we decide what happens if there's an address' #}
+    {% if post.locationName is not null %}
+    <p class="light grey-text">
+      <i class="material-icons">place</i> At <em>{{post.locationName}}, {{post.locationAddress}}</em>
+    </p>
+    {% endif %}
+
+    {# Next we decide how to display the description. If the post's financial value is not null, then we offload the decision to the financial template. Else we just stick the description on there #}
+    {% if post.financialValue is not null %}
+      {% include 'AppBundle:profile:financial_descriptions.html.twig' %}
+    {% else %}
+     <p>
+       {{post.description}}
+     </p>
+    {% endif %}
+
+    <div class="map-container">
+
+      <div class="post-actionbar">
+        {# If we have location data we can decide to show a button to reveal the map #}
+        {% if post.locationLatitude is not null and post.locationLongitude is not null %}
+        <a class="btn-floating halfway-fab waves-effect waves-light blue map-reveal"><i class="material-icons">map</i></a>
+        {% endif %}
+
+        {# If we have image data then we know to include a button to view the larger image #}
+        {% if post.mediaURI is not null %}
+        <a class="btn-floating halfway-fab waves-effect waves-light red" href="{{post.mediaURI}}" target="_blank"><i class="material-icons">image</i></a>
+        {% endif %}
+      </div>
+
+      {# If we have location data then we create a map with the data buried in the div #}
+      {% if post.locationLatitude is not null and post.locationLongitude is not null %}
+        {# Note: a random integer is added to the end of the id div so that we can have multiple copies of the map on the /what page when filtering by tags #}
+        <div data-latitude="{{post.locationLatitude}}" data-longitude="{{post.locationLongitude}}" id="map-post-{{post.id}}-{{random(100)}}" class="hidden-map" style="height: 350px; width: 100%; margin-bottom: 1em;"></div>
+      {% endif %}
+    </div>
+
+    <div class="tags-container">
+      {% block tags %} {# Allow block to be overridden in case we need to put in a different route for the tags to link off to #}
+
+        {% for tag in post.tags %}
+        <div class="chip">
+          {{tag.name}}
+        </div>
+        {% else %}
+        <p>
+          This post has no tags! <a href="#">Contact us</a> to fix it!
+        </p>
+        {% endfor %}
+      {% endblock tags %}
+    </div>
+
+    {% block form %}
+
+    {% endblock form %}
+
+  </div>
+
+</div>

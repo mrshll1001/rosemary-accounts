@@ -1,0 +1,87 @@
+{% extends 'AppBundle:user:control_panel.html.twig' %}
+
+{% block title %}Configure Apps{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <h2 class="light">Configure Apps</h2>
+
+        <p class="light">
+          Apps can help you and your team collect data to use on your Rosemary profile. This data can be receipts, events, or other forms of data supported by the <a href="http://openlab.ncl.ac.uk/qualitative-accounting" target="_blank">Qualitative Accounting</a> data standard. We support any apps that implement the standard, although we <a href="#">officially support some partnered apps</a>. Using apps can help take the pressure off of the person cultivating the accounts and profile, as it allows other team members to join in on data collection.
+        </p>
+
+        <p class="light">
+          To get started, follow the instructions below.
+        </p>
+
+        <ol class="light">
+          <li>Find an app that you like to use, we recommend <a href="#">Accounting Scrapbook</a></li>
+          <li>On the form below, enter a name that makes sense to you and will help you identify where the data is coming from, e.g. the name of a team member</li>
+
+          <li>This will generate a 10 digit code. On your app, wherever you add a service, enter <code>http://rosemary-accounts.co.uk</code> alongside your code (Note, some apps may call this <em>API Key</em>)</li>
+
+          <li>Done! Repeat the previous steps for each new code you want to generate, for everyone you want to collect data for you</li>
+        </ol>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        {{form_start(form)}}
+          {{form_row(form.name)}}
+          <button type="submit" name="submit" class="btn right">Add</button>
+        {{form_end(form)}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Current Codes</span>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Name
+                  </th>
+
+                  <th>
+                    Code
+                  </th>
+
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for token in tokens %}
+                    <tr>
+                      <td>
+                        {{token.name}}
+                      </td>
+
+                      <td>
+                        {{token.token}}
+                      </td>
+
+                      <td>
+                        <button class="btn" type="submit" name="button">Delete</button>
+                      </td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+{% endblock content %}

@@ -1,0 +1,132 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Accounting Scrapbook{% endblock title %}
+
+{% block body %}
+
+  {# Include the navbar component #}
+  {% include 'AppBundle:landing:navbar.html.twig'  %}
+
+  <div class="container">
+    <div class="row">
+      <h1 class="light">Using Accounting Scrapbook with Rosemary Accounts</h1>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <p class="light">
+          Rosemary Accounts is part of the Qualitative Accounting ecosystem, which means that it supports input from any application which produces this format of data. Most people, however, just want to get up and running with an app and for this reason we recommend <a href="#">Accounting Scrapbook</a> and provide support for it.
+        </p>
+
+        <p class="light">
+          Accounting Scrapbook is a simple, easy-to-use app for Android devices to produce data that is compatible with Rosemary Accounts. It allows you to collect information based on events, spending, images, and quotes and organise them into Scrapbooks. <a href="#">Find out more information here</a>. If you're interested in using the Accounting Scrapbook, then this page provides you with a tutorial on how you can get up and running with using the app and Rosemary accounts together.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 1 - Downloading and installing the app</h3>
+      <div class="col s12 m6">
+        <p class="light">
+          If you already have the app installed, skip ahead to Step 2.
+        </p>
+        <p class="light">
+          Head to <a href="#">accounting-scrapbook.com</a> to get a copy of the app. This will download as an <i>apk</i> file, which is an android file. Open this file on your Android phone to install the app.
+        </p>
+      </div>
+
+      <div class="col s12 m6">
+          <p class="center">
+            Screenshots here
+          </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 2 - Set up access code in Rosemary</h3>
+      <div class="col s12 m6">
+        <img class="materialboxed tutorialscreenshot" src="{{asset('img/tutorial_screenshots/configure_apps.png')}}" alt="" />
+        <img class="materialboxed tutorialscreenshot" src="{{asset('img/tutorial_screenshots/configure_apps002.png')}}" alt="" style="width:100%" />
+        <img class="materialboxed tutorialscreenshot" src="{{asset('img/tutorial_screenshots/configure_apps003.png')}}" alt="" style="width:100%" />
+      </div>
+
+      <div class="col s12 m6">
+        <p class="light">
+          Now you have the app, you need to get it talking to Rosemary. In your web browser, head to the <a href="{{url('configure_apps')}}" target="_blank">Settings > Configure Apps</a> page in Rosemary. In the form, enter a name that makes sense to you. This could be a person, like <i>"Alice"</i>, or it could represent something else like <i>"Bob's phone"</i>. Hit enter, and Rosemary will generate you a new 10-digit code.
+        </p>
+
+        <p class="light">
+          The job of this code is to tell Rosemary who's sending data, so we can put it in your inbox. The name for the code lets you add as many as you like and know which data is coming from where.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 3 - Set up the app with your code</h3>
+      <div class="col s12 m6">
+        <p class="light">
+          In the Accounting Scrapbook app go to the Settings page, available from the top-right corner menu of the main screen. Click the Add button to bring up a menu which will let you add Rosemary as a service.
+        </p>
+
+        <p class="light">
+          In this menu, first enter the address of Rosemary accounts <code>https://rosemary-accounts.co.uk</code>. In the next box you should enter the 10-digit code that you generated with Rosemary. Finish this by selecting Add. You should now see the address added, with a yellow key to indicate that you have a token added alongside
+        </p>
+      </div>
+
+      <div class="col s12 m6">
+        <p class="center">
+          Screenshots here
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 4 - Get some data!</h3>
+      <div class="col s12 m6">
+        <p class="center">
+          Screenshots here
+        </p>
+      </div>
+
+      <div class="col s12 m6">
+        <p class="light">
+          You can use the Accounting Scrapbook to collect a variety of datatypes about your work and spending. Use it to add images, maps, and quotes as well as logging the everyday expenditure that's necessary to keep your organisation running.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 5 - Share your data with Rosemary</h3>
+      <div class="col s12 m6">
+        <p class="light">
+          In the App, slide open the navigation drawer on the left and select <i>Share</i>, which will take you to the Sharing Screen. Select the data you want to share from each scrapbook, and then hit the Share button next to Rosemary. The app will then share all of the data you've selected to Rosemary.
+        </p>
+      </div>
+
+      <div class="col s12 m6">
+        <p class="center">
+          Screenshots here
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3 class="light">Step 6 - Sync the data</h3>
+      <div class="col s12 m6">
+        <p class="center">
+          Screenshots here
+        </p>
+      </div>
+
+      <div class="col s12 m6">
+        <p class="light">
+          In Rosemary, visit the <a href="{{url('incoming_posts')}}">Sync App Posts</a> to see the new posts from the apps. From this page, you can disapprove, approve, and edit the posts that were generated with the app. After this, you're done!
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock body %}

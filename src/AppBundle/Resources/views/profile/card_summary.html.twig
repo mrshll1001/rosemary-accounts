@@ -1,0 +1,15 @@
+<div class="card grey-text text-darken-2">
+  <div class="card-content">
+    <p>
+      {{summary.post_types.total}} Posts
+      {{summary.post_types.images}} <a href="{{path('social_profile_gallery', {'username': organisation.username})}}">Images</a>
+      {{summary.post_types.locations}} <a href="{{path('social_profile_locations', {'username': organisation.username})}}">Locations</a>
+    </p>
+
+    <h5 class="light green-text"> We've received {{summary.balances.moneyIn|fintotal}} this year</h5>
+
+    <h5 class="light orange-text">We've spent {{summary.balances.moneyOut|fintotal}} this year</h5>
+
+    <!-- <h4 class="light">Total {{summary.balances.moneyTotal|fintotal(true)}}</h4> -->
+  </div>
+</div>

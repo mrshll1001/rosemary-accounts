@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: rosemary
+    database_user: root
+    database_password: toor
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: b88dbae0514d2ec3fb7e3924360e4c8ff39fcad1
+    s3_bucket: rosemary-accounts
+    s3_token: AKIAI3OHK7VUO6PCXBTQ
+    s3_secret: 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

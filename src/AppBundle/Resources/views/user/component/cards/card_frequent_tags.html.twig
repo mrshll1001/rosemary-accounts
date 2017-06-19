@@ -1,0 +1,16 @@
+{% extends 'AppBundle:user/component/cards:card_base.html.twig' %}
+
+{% block card_title %}Most used Tags{% endblock card_title %}
+
+{% block card_content %}
+<br>
+
+{% for tag in tag_count %}
+  <div class="chip">
+
+
+    {{tag.tag}} ({{tag.number}})
+  </div>
+{% endfor %}
+
+{% endblock card_content %}

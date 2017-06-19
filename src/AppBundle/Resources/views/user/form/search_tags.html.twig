@@ -1,0 +1,14 @@
+
+<label for="chips">Search by Tags</label>
+
+<div class="chips chips-autocomplete" name="chips"></div>
+
+{% if requested_tags is not null %}
+  {% for tag in requested_tags %}
+    <div class="requested-tag" data-tag="{{tag.name}}"></div>
+  {% endfor %}
+{% endif %}
+
+<form id="tag-search-form" data-baseurl="{{baseurl}}" class="tag-search-form" action="#" method="get">
+  <button class="btn" type="submit" >Search</button>
+</form>

@@ -1,0 +1,9 @@
+{% extends 'AppBundle:profile:card_compound_user.html.twig' %}
+
+{% block form %}
+<div class="card-action">
+    <a class="waves-effect waves-light btn orange" href="{{url('edit_post_page', {'id':post.id})}}" ><i class="material-icons right">edit</i>Edit</a>
+
+    <a class="waves-effect waves-light btn red" href="{{url('remove_post', {'id':post.id}) }}"><i class="material-icons right">clear</i>Remove</a>
+</div>
+{% endblock form %}

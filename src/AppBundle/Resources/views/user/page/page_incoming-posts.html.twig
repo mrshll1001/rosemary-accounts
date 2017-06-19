@@ -1,0 +1,49 @@
+{% extends 'AppBundle:user:control_panel.html.twig' %}
+
+{% block title %}Incoming Posts{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <h1 class="light">Incoming Posts</h1>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m12">
+      <p class="light">
+        If you and your team are <a href="{{path('configure_apps')}}">using apps</a> to help you collect accounts information, this page is designed to help you make sense of this. Whenever you or your team use an app to upload accounts information or media, they will be stored here and won't be able to be seen by the public until you approve of them. This also means that they are not considered in any budget summaries or calculations made by Rosemary until you approve.
+      </p>
+
+      <p class="light">
+        All you need to do to approve of a post is to click <a href="#" class="btn">Approve</a>, and it gets added to your profile. Before approving, you have the opportunity to edit the post by changing details; you may want to add or remove tags, or add data to the post such as location.
+      </p>
+
+      <p class="light">
+        Alternatively, you can <a href="#" class="btn red">Remove</a> a post. When you do this, the post is removed from the system altogether. There can be several reasons to do this, but most of the time you will want to edit the post instead of deleting it.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3 class="light">{{posts|length}} posts to approve</h3>
+  </div>
+
+
+  <div class="row">
+    {% for post in posts %}
+
+      <div class="col s12">
+        {% include 'AppBundle:profile:card_incoming.html.twig' %}
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src="{{asset('js/profile-maps.js')}}"></script>
+{% endblock script %}

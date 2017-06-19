@@ -1,0 +1,59 @@
+
+{# Dropdowns #}
+<ul id="dropdown-accounts" class="dropdown-content">
+{% include 'AppBundle:user/component/nav:accounts_actions.html.twig' %}
+</ul>
+
+
+<ul id="dropdown-posts" class="dropdown-content">
+{% include 'AppBundle:user/component/nav:posts_actions.html.twig' %}
+
+</ul>
+
+<ul id="dropdown-settings" class="dropdown-content">
+{% include 'AppBundle:user/component/nav:settings_actions.html.twig' %}
+
+</ul>
+
+<ul id="dropdown-user" class="dropdown-content">
+{% include 'AppBundle:user/component/nav:user_actions.html.twig' %}
+
+</ul>
+
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="{{path('index')}}" class="brand-logo center"><img src="{{asset("img/icon.svg")}}" height="60em" alt="hello" /></a>
+
+    {# Displayed on web view, at the top of the page #}
+    <ul class="left hide-on-med-and-down">
+
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown-accounts"><i class="material-icons left">account_balance_wallet</i>Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
+
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown-posts"><i class="material-icons left">description</i>Posts<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+
+
+
+    <ul class="right hide-on-med-and-down">
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown-settings"><i class="material-icons left">settings</i>Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown-user"><i class="material-icons left">account_box</i>{{app.user.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+
+    </ul>
+
+
+    {# Displayed on mobile view, in the side bar #}
+    <ul id="nav-mobile" class="side-nav">
+      {% include 'AppBundle:user/component/nav:accounts_actions.html.twig' %}
+      <li class="divider"></li>
+      {% include 'AppBundle:user/component/nav:posts_actions.html.twig' %}
+      <li class="divider"></li>
+      {% include 'AppBundle:user/component/nav:settings_actions.html.twig' %}
+      <li class="divider"></li>
+      {% include 'AppBundle:user/component/nav:user_actions.html.twig' %}
+
+
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
